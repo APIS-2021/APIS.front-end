@@ -58,7 +58,7 @@ export default function Home() {
 
         setTimeout(() => {
           saveMessage(null)
-        }, 7000);
+        }, 3000);
       }
     }
   });
