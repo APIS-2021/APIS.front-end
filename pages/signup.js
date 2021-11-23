@@ -47,7 +47,8 @@ export default function Home() {
       }
       console.log(usuario);
       try{
-        await nuevoUsuario(usuario);
+        const something = await nuevoUsuario(usuario);
+        console.log(something)
         // Mensaje de usuario creado
         saveMessage('Usuario creado.');
         setTimeout(()=>{

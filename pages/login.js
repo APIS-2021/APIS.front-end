@@ -46,9 +46,10 @@ export default function Home() {
       try{
         const {data} = await verificarUsuario(usuario);
         // Guardar el token
-        const { token } = data.verificarUsuario;
+        const { token, Nombre } = data.verificarUsuario;
         // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOWM1YWMyMjhkZTA5Yzk1OWQwMTJhOCIsImlhdCI6MTYzNzYzODE3MiwiZXhwIjoxNjM3NzI0NTcyfQ.XTxJAyv__ssCYZgZz9O7O0LRp2hHbz2wFEMlGnFV-Tw"
         localStorage.setItem('token',token);
+        localStorage.setItem('username',Nombre);
         // Redirigir
         router.push('/logged')
       } catch (error) {

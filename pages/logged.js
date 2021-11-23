@@ -62,10 +62,9 @@ var usuarios = [
 ]
 
 export default function Home() {
-
   // Listado de productos
   const [message2, saveHogares] = useState(casas);
-  const [message, saveMessage] = useState(null);
+  const [message, saveProductos] = useState(null);
   const [selected, saveValue] = useState(null);
   const [editHogar, saveEH] = useState(null);
   const [editProducto, saveEP] = useState(null);
@@ -134,7 +133,7 @@ export default function Home() {
           productos.push(newProducto)
         }
       }
-      saveMessage(productos.filter(producto=> producto.DeHogar == selected))
+      saveProductos(productos.filter(producto=> producto.DeHogar == selected))
       resetForm()
     }
   });
@@ -155,9 +154,9 @@ export default function Home() {
         ind = casas.length - 1
       }
       saveValue(casas[ind].Nombre)
-      saveMessage(productos.filter(producto=> producto.DeHogar == casas[ind].Nombre))
+      saveProductos(productos.filter(producto=> producto.DeHogar == casas[ind].Nombre))
     } else {
-      saveMessage([])
+      saveProductos([])
     }
   }
 
@@ -171,7 +170,7 @@ export default function Home() {
 
   function delP(id) {
     productos = productos.filter(producto=>producto.id!=id)
-    saveMessage(productos.filter(producto=>producto.DeHogar==selected))
+    saveProductos(productos.filter(producto=>producto.DeHogar==selected))
   }
 
   const showMessage2 = () => {
@@ -199,7 +198,7 @@ export default function Home() {
 
   function listProducts(event) {
     saveValue(event.target.value)
-    saveMessage(productos.filter(producto=> producto.DeHogar == event.target.value))
+    saveProductos(productos.filter(producto=> producto.DeHogar == event.target.value))
   }
 
   const showMessage = () => {
